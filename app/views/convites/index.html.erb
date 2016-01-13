@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Convites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome Convidado</th>
+      <th>Data entrega</th>
+      <th>Convidado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @convites.each do |convite| %>
+      <tr>
+        <td><%= convite.convidado.nome %></td>
+        <td><%= convite.data_entrega %></td>
+        <td><%= convite.convidado_id %></td>
+        <td><%= link_to 'Show', convite %></td>
+        <td><%= link_to 'Edit', edit_convite_path(convite) %></td>
+        <td><%= link_to 'Destroy', convite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Convite', new_convite_path %>

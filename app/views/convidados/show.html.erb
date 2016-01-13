@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @convidado.nome %>
+</p>
+
+<p>
+  <strong>Conjuge:</strong>
+  <%= @convidado.conjuge %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @convidado.endereco %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @convidado.bairro %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @convidado.cidade %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @convidado.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_convidado_path(@convidado) %> |
+<%= link_to 'Back', convidados_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data entrega:</strong>
+  <%= @convite.data_entrega %>
+</p>
+
+<p>
+  <strong>Convidado:</strong>
+  <%= @convite.convidado_id %>
+</p>
+
+<%= link_to 'Edit', edit_convite_path(@convite) %> |
+<%= link_to 'Back', convites_path %>

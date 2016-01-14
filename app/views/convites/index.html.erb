@@ -8,7 +8,7 @@
       <th>Nome Convidado</th>
       <th>Data entrega</th>
       <th>Convidado</th>
-      <th colspan="3"></th>
+      <th colspan="3">Ações</th>
     </tr>
   </thead>
 
@@ -16,7 +16,7 @@
     <% @convites.each do |convite| %>
       <tr>
         <td><%= convite.convidado.nome %></td>
-        <td><%= convite.data_entrega %></td>
+        <td><%= convite.data_entrega.strftime("%d/%m/%Y") %></td>
         <td><%= convite.convidado_id %></td>
         <td><%= link_to 'Show', convite %></td>
         <td><%= link_to 'Edit', edit_convite_path(convite) %></td>

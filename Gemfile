@@ -15,3 +15,5 @@ gem "twitter-bootstrap-rails"
 
 gem 'tzinfo-data'
 
+gem 'devise'
+

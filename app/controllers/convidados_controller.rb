@@ -1,5 +1,6 @@
 class ConvidadosController < ApplicationController
   before_action :set_convidado, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /convidados
   def index

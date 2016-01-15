@@ -12,6 +12,9 @@
   <% end %>
 
   <div class="field">
+    <%= f.hidden_field :usuario_id, value: current_user.id %>
+  </div>
+  <div class="field">
     <%= f.label :data_entrega %><br>
     <%= f.datetime_select :data_entrega %>
   </div>

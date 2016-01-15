@@ -30,13 +30,17 @@ class ConvitesController < ApplicationController
 
   # POST /convites
   def create
+    
+    
     @convite = Convite.new(convite_params)
-
+   
     if @convite.save
       redirect_to @convite, notice: 'Convite was successfully created.'
     else
       render :new
     end
+
+    #render "teste"
   end
 
   # PATCH/PUT /convites/1
@@ -62,7 +66,7 @@ class ConvitesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def convite_params
-      params.require(:convite).permit(:data_entrega, :convidado_id)
+      params.require(:convite).permit(:data_entrega, :convidado_id, :usuario_id)
     end
 
     protect_from_forgery with: :null_session

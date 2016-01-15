@@ -8,6 +8,11 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <div class="field">
+    <%= f.label :Usuario %><br />
+    <%= f.text_field :usuario %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
@@ -23,7 +28,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :Senha_atual %> <i>(A senha atual é necessária para confirmar as alterações)</i><br />
+    <%= f.label :current_password %> <i>(A senha atual é necessária para confirmar as alterações)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 

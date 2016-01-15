@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160115135748) do
     t.integer  "convidado_id", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "usuario_id",   limit: 4
+    t.integer  "user_id",      limit: 4
   end
 
   create_table "users", force: :cascade do |t|

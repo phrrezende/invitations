@@ -66,7 +66,7 @@ class ConvitesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def convite_params
-      params.require(:convite).permit(:data_entrega, :convidado_id, :usuario_id)
+      params.require(:convite).permit(:data_entrega, :convidado_id, :user_id)
     end
 
     protect_from_forgery with: :null_session

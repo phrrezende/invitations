@@ -5,6 +5,7 @@ class ConvitesController < ApplicationController
   # GET /convites
   def index
     @convites = Convite.all
+    @total_convites=Convite.busca_total
   end
 
   # GET /convites/1

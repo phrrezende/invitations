@@ -14,9 +14,7 @@ class ConvitesController < ApplicationController
 
   def busca 
     nome_da_busca= params[:nome_da_busca]
-    #@convites=Convite.where('nome like ?', 'paulo').where_values_hash
-    @convites=Convite.joins(:convidado).where("convidados.nome like '%#{nome_da_busca}%'")
-    #@convites=Convite.where(convidado_id: "1")
+    @convites=Convite.busca(nome_da_busca)
     
   end
   # GET /convites/new

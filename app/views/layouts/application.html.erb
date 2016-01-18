@@ -28,9 +28,54 @@
   }
 
   #body{
-  	background-color:  #F8F8F8;
+  	/*background-color:  #F8F8F8;*/
   	border-radius: 4px;
   }
+
+  /* css divs arredondadas */
+
+  .circle {
+margin-left: auto;
+margin-right: auto;
+border-radius: 50%;
+width: 80%;
+position: relative;
+}
+
+.circle-border {
+border: 1px solid black;
+}
+
+.circle-solid{
+background-color: whitesmoke;
+}
+
+.circle:before {
+content: "";
+display: block;
+padding-top: 100%;
+}
+
+.circle-inner {
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+text-align: center;
+}
+
+.score-text {
+margin: auto;
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+height: 1em;
+line-height: 1em;
+font-size: 1em;
+}
   </style>
 </head>
 <body>
@@ -56,7 +101,7 @@
 				        <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastrar <span class="caret"></span></a>
 				          <ul class="dropdown-menu">
-				            <li><a href="<%= root_url %>convidados/new">Convidados</a></li>
+				            <li><%= link_to "Convidados", new_convidado_path%></li>
 				            <li><a href="<%= root_url %>convites/new">Convites</a></li>
 				            <li><a href="#">Something else here</a></li>
 				            <li role="separator" class="divider"></li>
@@ -66,12 +111,12 @@
 				          </ul>
 				        </li>
 				      </ul>
-				      <form class="navbar-form navbar-left" method="post" action="convites/busca"role="search">
-				        <div class="form-group">
-				          <input type="text" name="nome_da_busca" class="form-control" placeholder="Buscar">
-				        </div>
-				        <button type="submit" class="btn btn-default">Submit</button>
-				      </form>
+				      <%= form_tag convidados_busca_path, method: :get, class: "navbar-form navbar-right" do %>
+				      	<div class="form-group">
+				      		<%= text_field_tag :nome, nil, class: "form-control"%>
+				      		<%= button_to "Buscar", nil, class: "btn btn-default" %>
+				      	</div>		
+				      <% end %>
 				      <ul class="nav navbar-nav navbar-right">
 				      	<% if user_signed_in? %>
 					        <li class="dropdown">
@@ -92,9 +137,10 @@
 	</div>
 	
 	<div id="body" class="row">
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-		<%= yield %>
+		
+	
+			<%= yield %>
+		
 	</div>
 	
 </div>

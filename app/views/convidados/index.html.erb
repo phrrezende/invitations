@@ -1,38 +1,57 @@
-<p> Total de Convidados: <%= @total_convidados %></p>
-<p> Total de Convites: <%= @total_convites %></p>
 
-<h1>Listing Convidados</h1>
+<div class="col-md-10">
+  <h1> Convidados Cadastrados</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Conjuge</th>
-      <th>Endereco</th>
-      <th>Bairro</th>
-      <th>Cidade</th>
-      <th>Descricao</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @convidados.each do |convidado| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= convidado.nome %></td>
-        <td><%= convidado.conjuge %></td>
-        <td><%= convidado.endereco %></td>
-        <td><%= convidado.bairro %></td>
-        <td><%= convidado.cidade %></td>
-        <td><%= convidado.descricao %></td>
-        <td><%= link_to 'Show', convidado %></td>
-        <td><%= link_to 'Edit', edit_convidado_path(convidado) %></td>
-        <td><%= link_to 'Destroy', convidado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nome</th>
+        <th>Conjuge</th>
+        <th>Endereco</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th>Descricao</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @convidados.each do |convidado| %>
+        <tr>
+          <td><%= convidado.nome %></td>
+          <td><%= convidado.conjuge %></td>
+          <td><%= convidado.endereco %></td>
+          <td><%= convidado.bairro %></td>
+          <td><%= convidado.cidade %></td>
+          <td><%= convidado.descricao %></td>
+          <td><%= link_to 'Show', convidado %></td>
+          <td><%= link_to 'Edit', edit_convidado_path(convidado) %></td>
+          <td><%= link_to 'Destroy', convidado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Convidado', new_convidado_path %>
+  <br>
+
+  <%= link_to 'New Convidado', new_convidado_path %>
+</div>
+<div class="col-md-2">
+  <div class="circle circle-border">
+       <div class="circle-inner">
+           <div class="score-text">
+               <p> Total de Convidados</p>
+               <p><%= @total_convidados %></p>
+            </div>
+       </div>
+  </div>
+ <div style="margin-top: 5px;" class="circle circle-border">
+      <div class="circle-inner">
+          <div class="score-text">
+              <p> Total de Convites</p>
+              <p><%= @total_convites %></p>
+           </div>
+      </div>
+ </div>
+</div>
+

@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Convites</h1>
-  <p><%= puts @convites =%></p>
-<table>
+<div class="col-md-10">
+  <h1>Convites Entregues</h1>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nome Convidado</th>
       <th>Data entrega</th>
-      <th>Convidado</th>
+      <th>Usuário</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +15,7 @@
       <tr>
         <td><%= convite.convidado.nome %></td>
         <td><%= convite.data_entrega.strftime("%d/%m/%Y") %></td>
-        <td><%= convite.convidado_id %></td>
+        <td><%= convite.user.usuario %></td>
         <td><%= link_to 'Show', convite %></td>
         <td><%= link_to 'Edit', edit_convite_path(convite) %></td>
         <td><%= link_to 'Destroy', convite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,4 +26,6 @@
 
 <br>
 
-<%= link_to 'New Convite', new_convite_path %>
+<%= link_to 'Novo Convite', new_convite_path %>
+</div>
+

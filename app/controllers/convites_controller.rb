@@ -1,7 +1,6 @@
 class ConvitesController < ApplicationController
   before_action :set_convite, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:busca]
-
+  before_action :authenticate_user!
   # GET /convites
   def index
     @convites = Convite.all
@@ -13,11 +12,9 @@ class ConvitesController < ApplicationController
   end
 
   def busca 
-    nome_da_busca= params[:nome_da_busca]
-    #@convites=Convite.where('nome like ?', 'paulo').where_values_hash
-    @convites=Convite.joins(:convidado).where("convidados.nome like '%#{nome_da_busca}%'")
-    #@convites=Convite.where(convidado_id: "1")
-    
+    nome_da_busca= params[:nome]
+    @convites=Convite.busca(nome_da_busca)
+    render :busca
   end
   # GET /convites/new
   def new

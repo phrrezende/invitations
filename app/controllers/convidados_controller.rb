@@ -13,6 +13,12 @@ class ConvidadosController < ApplicationController
   def show
   end
 
+  def busca
+    nome_a_buscar = "%#{params[:nome]}%"
+    @convidados= Convidado.where "nome like ?", nome_a_buscar
+    render :busca
+  end
+
   # GET /convidados/new
   def new
     @convidado = Convidado.new

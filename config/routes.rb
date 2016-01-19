@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  get  "/convidados/busca" => "convidados#busca"
+  get  "/convites/busca" => "convites#busca"
   resources :convites
   resources :convidados
   root "convidados#index"
-  post "/convites/busca" => "convites#busca"
+  
  
 end

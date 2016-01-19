@@ -111,9 +111,9 @@ font-size: 1em;
 				          </ul>
 				        </li>
 				      </ul>
-				      <%= form_tag convidados_busca_path, method: :get, class: "navbar-form navbar-right" do %>
+				      <%= form_tag convites_busca_path, method: :get, class: "navbar-form navbar-left"  do %>
 				      	<div class="form-group">
-				      		<%= text_field_tag :nome, nil, class: "form-control"%>
+				      		<%= text_field_tag :nome, nil, placeholder: "Buscar convites", class: "form-control"%>
 				      		<%= button_to "Buscar", nil, class: "btn btn-default" %>
 				      	</div>		
 				      <% end %>

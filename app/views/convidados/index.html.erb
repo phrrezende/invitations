@@ -1,6 +1,6 @@
 
 <div class="col-md-10">
-  <h1> Convidados Cadastrados</h1>
+  <h1> Convidados Cadastrados <span class="badge"><%= @total_convidados %></span></h1>
 
   <table class="table table-striped">
     <thead>
@@ -36,22 +36,5 @@
 
   <%= link_to 'New Convidado', new_convidado_path %>
 </div>
-<div class="col-md-2">
-  <div class="circle circle-border">
-       <div class="circle-inner">
-           <div class="score-text">
-               <p> Total de Convidados</p>
-               <p><%= @total_convidados %></p>
-            </div>
-       </div>
-  </div>
- <div style="margin-top: 5px;" class="circle circle-border">
-      <div class="circle-inner">
-          <div class="score-text">
-              <p> Total de Convites</p>
-              <p><%= @total_convites %></p>
-           </div>
-      </div>
- </div>
-</div>
+
 

@@ -17,4 +17,5 @@ gem 'tzinfo-data'
 
 gem 'devise'
 
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
+

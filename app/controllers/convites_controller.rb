@@ -19,7 +19,7 @@ class ConvitesController < ApplicationController
   # GET /convites/new
   def new
     @convite = Convite.new
-    @convidados= Convidado.order(:nome)
+    @convidados= Convidado.sem_convite
   end
 
   # GET /convites/1/edit

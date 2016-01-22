@@ -20,6 +20,10 @@ class ConvitesController < ApplicationController
   def new
     @convite = Convite.new
     @convidados= Convidado.sem_convite
+
+    if @convidados.count() <= 0
+      redirect_to convites_path, notice: "Todos convidados cadastrados receberam convite."
+    end
   end
 
   # GET /convites/1/edit
@@ -33,7 +37,7 @@ class ConvitesController < ApplicationController
     @convite = Convite.new(convite_params)
    
     if @convite.save
-      redirect_to @convite, notice: 'Convite was successfully created.'
+      redirect_to @convite, notice: 'Convite criado com sucesso.'
     else
       render :new
     end
@@ -44,7 +48,7 @@ class ConvitesController < ApplicationController
   # PATCH/PUT /convites/1
   def update
     if @convite.update(convite_params)
-      redirect_to @convite, notice: 'Convite was successfully updated.'
+      redirect_to @convite, notice: 'Convite atualizado com sucesso'
     else
       render :edit
     end
@@ -53,7 +57,7 @@ class ConvitesController < ApplicationController
   # DELETE /convites/1
   def destroy
     @convite.destroy
-    redirect_to convites_url, notice: 'Convite was successfully destroyed.'
+    redirect_to convites_url, notice: 'Convite removido com sucesso.'
   end
 
   private

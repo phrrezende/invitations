@@ -32,18 +32,21 @@ class ConvitesController < ApplicationController
 
   # POST /convites
   def create
-    
+    data= Time.new
+    convite= {:data_entrega => data, 
+    :convidado_id => params["convidado_id"], 
+    :user_id => current_user.id}
 
-   @convite = Convite.new(params["convite"])
+   @convite = Convite.new(convite)
 
-   if @convite.save
-      redirect_to @convite, notice: 'Convite criado com sucesso.'
-  else
-      render :new
-  end
-
-    respond_to do |format|
-      format.js {head :ok}
+      respond_to do |format|
+         if @convite.save
+            #format.html {redirect_to @convite, notice: 'Convite criado com sucesso.'}
+            format.json {render json: '[{"notice": "Convite Criado com Sucesso"}]'}
+        else
+            format.html {render action: "new"}
+            format.js {}
+        end
 
     end
    

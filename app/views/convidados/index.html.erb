@@ -41,19 +41,21 @@
  $(document).ready(function() {
 
   var convidado = function(){
-    id = $(this).parent().parent().attr("id");
-    convite = {convidado_id: id, data_entrega: '2016-01-30', user_id: "2"}
-    $.ajax({
-      url: "<%= convites_path %>",
-      type: "POST",
-      data: convite,
-      success: function(data){
-        console.log(data);
-    }
+    confirma= confirm("Deseja Registrar o Convite?");
+    if(confirma){
+      id = $(this).parent().parent().attr("id");
+      convite = {convidado_id: id, data_entrega: '2016-01-30', user_id: "2"}
+      $.ajax({
+        url: "<%= convites_path %>",
+        type: "POST",
+        data: convite,
+        success: function(data){
+         location.reload();
+      }
 
-    });
-  };
-  
+      });
+    }
+  }; 
   $('button[name="convidar"]').bind('click', convidado);
  });
 

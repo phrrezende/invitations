@@ -11,20 +11,20 @@
         <th>Bairro</th>
         <th>Cidade</th>
         <th>Descricao</th>
-        <th colspan="3"></th>
+        <th colspan="3">Ações</th>
       </tr>
     </thead>
 
     <tbody>
       <% @convidados.each do |convidado| %>
-        <tr>
+        <tr id="<%= convidado.id %>">
           <td><%= convidado.nome %></td>
           <td><%= convidado.conjuge %></td>
           <td><%= convidado.endereco %></td>
           <td><%= convidado.bairro %></td>
           <td><%= convidado.cidade %></td>
           <td><%= convidado.descricao %></td>
-          <td><%= link_to 'Show', convidado %></td>
+          <td><button id="convidar">Convidar</button></td>
           <td><%= link_to 'Edit', edit_convidado_path(convidado) %></td>
           <td><%= link_to 'Destroy', convidado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
@@ -36,5 +36,10 @@
 
   <%= link_to 'New Convidado', new_convidado_path %>
 </div>
+
+<% content_for :js do %>
+  
+
+<% end %>
 
 

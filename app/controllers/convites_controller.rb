@@ -33,16 +33,20 @@ class ConvitesController < ApplicationController
   # POST /convites
   def create
     
-    
-    @convite = Convite.new(convite_params)
-   
-    if @convite.save
-      redirect_to @convite, notice: 'Convite criado com sucesso.'
-    else
-      render :new
-    end
 
-    #render "teste"
+   @convite = Convite.new(params["convite"])
+
+   if @convite.save
+      redirect_to @convite, notice: 'Convite criado com sucesso.'
+  else
+      render :new
+  end
+
+    respond_to do |format|
+      format.js {head :ok}
+
+    end
+   
   end
 
   # PATCH/PUT /convites/1

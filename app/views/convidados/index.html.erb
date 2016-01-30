@@ -24,7 +24,7 @@
           <td><%= convidado.bairro %></td>
           <td><%= convidado.cidade %></td>
           <td><%= convidado.descricao %></td>
-          <td><button id="convidar">Convidar</button></td>
+          <td><button name="convidar">Convidar</button></td>
           <td><%= link_to 'Edit', edit_convidado_path(convidado) %></td>
           <td><%= link_to 'Destroy', convidado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
@@ -38,7 +38,24 @@
 </div>
 
 <% content_for :js do %>
+ $(document).ready(function() {
+
+  var convidado = function(){
+    id = $(this).parent().parent().attr("id");
+    convite = {convidado_id: id, data_entrega: '2016-01-30', user_id: "2"}
+    $.ajax({
+      url: "<%= convites_path %>",
+      type: "POST",
+      data: convite,
+      success: function(data){
+        console.log(data);
+    }
+
+    });
+  };
   
+  $('button[name="convidar"]').bind('click', convidado);
+ });
 
 <% end %>
 

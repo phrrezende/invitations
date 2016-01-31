@@ -14,7 +14,18 @@
 				dataType: 'Json',
 				data: {nome: palavras},
 				success: function(data){
-					console.log(data);
+					if(palavras.length>0 && data.length){
+					var lista = $("#lista");
+					lista.html('');
+					$("#sugestao").show('fast');
+					$.each(data, function(i,obj){
+						lista.append("<li class='item'>"+obj.nome+"</li>")
+					});
+					}
+					else{
+						$("#sugestao").hide('fast');
+					}
+					
 				}
 			});
 		};

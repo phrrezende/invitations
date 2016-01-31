@@ -16,7 +16,11 @@ class ConvidadosController < ApplicationController
   def busca
     nome_a_buscar = "%#{params[:nome]}%"
     @convidados= Convidado.where "nome like ?", nome_a_buscar
-    render :busca
+    respond_to do |format|
+      #format.html {render :busca}
+      format.json {render json: @convidados}
+    end
+    
   end
 
   # GET /convidados/new

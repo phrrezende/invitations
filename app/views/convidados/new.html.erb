@@ -9,7 +9,7 @@
 		var sugestao= function(){
 			palavras= $("#convidado_nome").val();
 			$.ajax({
-				url: "<%= convites_busca_path %>",
+				url: "<%= convidados_busca_path %>",
 				type: "GET",
 				dataType: 'Json',
 				data: {nome: palavras},

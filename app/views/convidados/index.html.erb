@@ -2,6 +2,12 @@
 <div class="col-md-10">
   <h1> Convidados Cadastrados <span class="badge"><%= @total_convidados %></span></h1>
 
+  <select name="bairros" id="select_bairro">
+    <% @convidados.each do |convidado| %>
+      <option value="<%= convidado.bairro %>"><%= convidado.bairro %></option>
+    <% end %>
+  </select>
+  <button name="filtra_bairro">Filtrar</button>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -56,7 +62,13 @@
       });
     }
   }; 
+
+  var filtrar = function(){
+    var bairro= $("#select_bairro option:selected").val();
+    console.log(bairro);
+  };
   $('button[name="convidar"]').bind('click', convidado);
+  $('button[name="filtra_bairro"]').bind('click',filtrar);
  });
 
 <% end %>

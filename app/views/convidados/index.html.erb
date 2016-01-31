@@ -2,12 +2,13 @@
 <div class="col-md-10">
   <h1> Convidados Cadastrados <span class="badge"><%= @total_convidados %></span></h1>
 
-  <select name="bairros" id="select_bairro">
-    <% @convidados.each do |convidado| %>
-      <option value="<%= convidado.bairro %>"><%= convidado.bairro %></option>
-    <% end %>
-  </select>
-  <button name="filtra_bairro">Filtrar</button>
+  <%= form_tag convidados_busca_bairro_path, method: :get do %>
+    <div class="form-group">
+      <%= select_tag :nome_bairro, options_from_collection_for_select(@convidados_bairro, "bairro", "bairro") %>
+      <%= button_to "Buscar", nil, class: "btn btn-default" %>
+    </div>    
+  <% end %>
+
   <table class="table table-striped">
     <thead>
       <tr>

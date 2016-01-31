@@ -14,7 +14,12 @@ class ConvitesController < ApplicationController
   def busca 
     nome_da_busca= params[:nome]
     @convites=Convite.busca(nome_da_busca)
-    render :busca
+    
+    respond_to do |format|
+      #format.html {render :busca}
+      format.json {render json: @convites}
+    end
+
   end
   # GET /convites/new
   def new

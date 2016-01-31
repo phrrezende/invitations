@@ -4,3 +4,21 @@
 	<%= link_to 'Voltar', convidados_path %>
 </div>
 
+<% content_for :js do %>
+	$(document).ready(function() {
+		var sugestao= function(){
+			palavras= $("#convidado_nome").val();
+			$.ajax({
+				url: "<%= convites_busca_path %>",
+				type: "GET",
+				dataType: 'Json',
+				data: {nome: palavras},
+				success: function(data){
+					console.log(data);
+				}
+			});
+		};
+		$("#convidado_nome").bind('keyup', sugestao);
+	});
+<% end %>
+

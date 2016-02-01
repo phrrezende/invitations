@@ -32,9 +32,9 @@
           <td><%= convidado.bairro %></td>
           <td><%= convidado.cidade %></td>
           <td><%= convidado.descricao %></td>
-          <td><button name="convidar">Convidar</button></td>
-          <td><%= link_to 'Edit', edit_convidado_path(convidado) %></td>
-          <td><%= link_to 'Destroy', convidado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><button name="convidar" class="btn btn-default btn-xs">Convidar</button></td>
+          <td><%= button_to 'Editar', edit_convidado_path(convidado), class: 'btn btn-default btn-xs' %></td>
+          <td><%= button_to 'Excluir', convidado, method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -42,7 +42,7 @@
 
   <br>
 
-  <%= link_to 'New Convidado', new_convidado_path %>
+  <%= button_to 'Novo Convidado', new_convidado_path, method: :get, class: 'btn btn-primary' %>
 </div>
 
 <% content_for :js do %>

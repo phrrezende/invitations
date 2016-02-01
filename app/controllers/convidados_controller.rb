@@ -5,7 +5,7 @@ class ConvidadosController < ApplicationController
   # GET /convidados
   def index
     @convidados = Convidado.sem_convite.order(:nome)
-    @convidados_bairro=Convidado.sem_convite.order(:bairro)
+    @convidados_bairro=Convidado.sem_convite.select(:bairro).distinct.order(:bairro)
     @total_convidados=Convidado.busca_total
     @total_convites=Convite.busca_total
   end
@@ -27,7 +27,7 @@ class ConvidadosController < ApplicationController
   def busca_bairro
     nome_bairro= "%#{params[:nome_bairro]}%"
     @convidados=Convidado.busca_bairro(nome_bairro)
-    @convidados_bairro=Convidado.sem_convite.order(:bairro)
+    @convidados_bairro=Convidado.sem_convite.select(:bairro).distinct.order(:bairro)
     render :index
   end
 

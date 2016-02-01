@@ -2,10 +2,11 @@
 <div class="col-md-10">
   <h1> Convidados Cadastrados <span class="badge"><%= @total_convidados %></span></h1>
 
-  <%= form_tag convidados_busca_bairro_path, method: :get do %>
+  <%= form_tag convidados_busca_bairro_path, method: :get, class: "form-inline col-md-offset-8" do %>
     <div class="form-group">
-      <%= select_tag :nome_bairro, options_from_collection_for_select(@convidados_bairro, "bairro", "bairro") %>
-      <%= button_to "Buscar", nil, class: "btn btn-default" %>
+      <%= label_tag "filtro_bairro", "Filtrar por Bairro" %>
+      <%= select_tag :nome_bairro, options_from_collection_for_select(@convidados_bairro, "bairro", "bairro"), class: 'form-control' %>
+      <%= button_to "Filtrar", nil, class: "btn btn-primary" %>
     </div>    
   <% end %>
 

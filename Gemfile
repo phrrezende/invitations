@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
-gem 'mysql2', '~> 0.3.18'
+
+group :development do
+  gem 'mysql2', '~> 0.3.18'
+end
+group :production do
+  gem 'pg'
+end
 
 gem 'rails', '4.2.4'
 

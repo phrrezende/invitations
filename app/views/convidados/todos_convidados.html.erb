@@ -1,0 +1,41 @@
+
+<div class="col-md-12">
+  <h1> Todos Convidados Cadastrados <span class="badge"><%= @total_convidados %></span></h1>
+
+ 
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Conjuge</th>
+        <th>Endereco</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th>Descricao</th>
+     
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @convidados.each do |convidado| %>
+        <tr id="<%= convidado.id %>">
+          <td><%= convidado.nome %></td>
+          <td><%= convidado.conjuge %></td>
+          <td><%= convidado.endereco %></td>
+          <td><%= convidado.bairro %></td>
+          <td><%= convidado.cidade %></td>
+          <td><%= convidado.descricao %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= button_to 'Novo Convidado', new_convidado_path, method: :get, class: 'btn btn-primary' %>
+</div>
+
+
+
+

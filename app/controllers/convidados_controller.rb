@@ -33,6 +33,7 @@ class ConvidadosController < ApplicationController
     nome_bairro= "%#{params[:nome_bairro]}%"
     @convidados=Convidado.busca_bairro(nome_bairro)
     @convidados_bairro=Convidado.sem_convite.select(:bairro).distinct.order(:bairro)
+    @total_convidados=@convidados.count()
     render :index
   end
 
@@ -50,7 +51,7 @@ class ConvidadosController < ApplicationController
     @convidado = Convidado.new(convidado_params)
 
     if @convidado.save
-      redirect_to @convidado, notice: 'Convidado was successfully created.'
+      redirect_to new_convidado_path, notice: 'Convidado criado com sucesso.'
     else
       render :new
     end
@@ -59,7 +60,7 @@ class ConvidadosController < ApplicationController
   # PATCH/PUT /convidados/1
   def update
     if @convidado.update(convidado_params)
-      redirect_to @convidado, notice: 'Convidado was successfully updated.'
+      redirect_to @convidado, notice: 'Convidado atualizado.'
     else
       render :edit
     end

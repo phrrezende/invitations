@@ -14,6 +14,7 @@ class ConvitesController < ApplicationController
   def busca 
     nome_da_busca= params[:nome]
     @convites=Convite.busca(nome_da_busca)
+    @total_convites=@convites.count()
     render :busca
 
   end

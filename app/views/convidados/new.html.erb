@@ -1,7 +1,12 @@
-<div class="col-md-10">
-	<h1>Novo Convidado</h1>
-	<%= render 'form' %>
-	<%= link_to 'Voltar', convidados_path %>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h1>Novo Convidado</h1>
+	</div>
+	<div class="panel-body">
+		<%= render 'form' %>
+		<%= link_to 'Voltar', convidados_path %>
+	</div>
+	
 </div>
 
 <% content_for :js do %>

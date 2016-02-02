@@ -1,6 +1,6 @@
 
-<div class=" panel panel-default">
-  <div class="panel-heading">
+
+  <div class="col-md-12">
     <h1> Convidados sem Convite <span class="badge"><%= @total_convidados %></span></h1>
   </div>
   <div class="panel-body">
@@ -44,10 +44,10 @@
 
     <br>
 
-    <%= button_to 'Novo Convidado', new_convidado_path, method: :get, class: 'btn btn-primary' %>
+    <%= button_to 'Novo Convidado', new_convidado_path, method: :get, class: 'btn btn-default' %>
   </div>
  
-</div>
+
 
 <% content_for :js do %>
  $(document).ready(function() {

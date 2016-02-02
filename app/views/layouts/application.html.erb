@@ -81,10 +81,32 @@ height: 1em;
 line-height: 1em;
 font-size: 1em;
 }
+
+#rodape{
+ background-color: #333333;
+ background-image: url("https://cdn3.iconfinder.com/data/icons/valenticons-2/64/valenticons-07-128.png");
+ background-repeat: no-repeat;
+ background-position: center;
+ border-radius: 4px;
+}
+
+#footer{
+	position: absolute;
+	margin-top: 30px;
+}
+
+#rodape p{
+ height: 70px;
+ text-align: center;
+ font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+ font-size: 22px;
+ padding-top: 5px;
+ color: #FFF;
+}
   </style>
 </head>
 <body>
-<div class="container">
+<div class="container ">
 	<div id="header" class="row">
 		<div class="navbar navbar-default">
 			<div class="container-fluid">
@@ -104,15 +126,13 @@ font-size: 1em;
 				        <li> <a href="<%= root_url %>convidados"><i class="fa fa-users"></i> Convidados</a></li>
 				        <li><a href="<%= root_url %>convites"><i class="fa fa-envelope-o"></i> Convites</a></li>
 				        <li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastrar <span class="caret"></span></a>
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
 				          <ul class="dropdown-menu">
-				            <li><%= link_to "Convidados", new_convidado_path%></li>
-				            <li><a href="<%= root_url %>convites/new">Convites</a></li>
-				            <li><a href="#">Something else here</a></li>
+				            <li><%= link_to "Registrar Convidados", new_convidado_path%></li>
+				            <li><a href="<%= root_url %>convites/new">Registrar Convites</a></li>
 				            <li role="separator" class="divider"></li>
-				            <li><a href="#">Separated link</a></li>
+				            <li><%= link_to "Todos Convidados", convidados_todos_convidados_path %></li>
 				            <li role="separator" class="divider"></li>
-				            <li><a href="#">One more separated link</a></li>
 				          </ul>
 				        </li>
 				      </ul>
@@ -147,7 +167,13 @@ font-size: 1em;
 			<%= yield :js %>
 		</script>
 	</div>
-	
+
+	<div id="footer" class="row">
+		<div id="rodape" style=" " class="col-md-12"> 
+			<p style="">Mônica Caroline - Paulo Humberto</p>
+			<p >14 de Janeiro de 2017</p>
+		</div>
+	</div>	
 </div>
 </body>
 </html>

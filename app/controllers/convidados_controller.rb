@@ -10,6 +10,11 @@ class ConvidadosController < ApplicationController
     @total_convites=Convite.busca_total
   end
 
+  def todos_convidados
+    @convidados= Convidado.all.order(:nome)
+    @total_convidados=Convidado.all.count()
+  end
+
   # GET /convidados/1
   def show
   end

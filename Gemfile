@@ -25,3 +25,5 @@ gem 'devise'
 
 gem 'font-awesome-rails'
 
+gem 'uglifier'
+

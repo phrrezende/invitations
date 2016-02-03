@@ -52,7 +52,7 @@
     confirma= confirm("Deseja Registrar o Convite?");
     if(confirma){
       id = $(this).parent().parent().attr("id");
-      convite = {convidado_id: id, data_entrega: '2016-01-30', user_id: "2"}
+      convite = {convidado_id: id}
       $.ajax({
         url: "<%= convites_path %>",
         type: "POST",

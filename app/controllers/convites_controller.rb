@@ -50,7 +50,7 @@ class ConvitesController < ApplicationController
             #format.html {redirect_to @convite, notice: 'Convite criado com sucesso.'}
             format.json {render json: '[{"notice": "Convite Criado com Sucesso"}]'}
         else
-            format.html {render action: "new"}
+            format.html {render :teste}
             format.js {}
         end
 

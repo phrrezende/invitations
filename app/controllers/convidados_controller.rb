@@ -44,6 +44,7 @@ class ConvidadosController < ApplicationController
 
   # GET /convidados/1/edit
   def edit
+
   end
 
   # POST /convidados
@@ -60,7 +61,7 @@ class ConvidadosController < ApplicationController
   # PATCH/PUT /convidados/1
   def update
     if @convidado.update(convidado_params)
-      redirect_to @convidado, notice: 'Convidado atualizado.'
+      redirect_to convidados_path, notice: 'Convidado atualizado.'
     else
       render :edit
     end

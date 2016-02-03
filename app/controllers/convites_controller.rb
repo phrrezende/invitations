@@ -37,7 +37,7 @@ class ConvitesController < ApplicationController
     data= Time.new
     convite= {:data_entrega => data, 
     :convidado_id => params["convidado_id"], 
-    :usuario_id => current_user.id}
+    :user_id => current_user.id}
 
    @convite = Convite.new(convite)
 

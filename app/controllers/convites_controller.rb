@@ -34,14 +34,10 @@ class ConvitesController < ApplicationController
 
   # POST /convites
   def create
-    #data= Time.new
-    #convite= {:data_entrega => data, 
-    #:convidado_id => params["convidado_id"], 
-    #:user_id => current_user.id}
-
-    convite= {:data_entrega => params["data_entrega"], 
-    :convidado_id => params["convidado_id"], 
-    :user_id => params["user_id"]}
+    data= Time.new
+    convite= {:data_entrega => data, 
+    convidado_id => params["convidado_id"], 
+    usuario_id => current_user.id}
 
    @convite = Convite.new(convite)
 

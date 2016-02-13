@@ -1,7 +1,7 @@
   <p id="notice"><%= notice %></p>
   <div style="position:relative;" class="col-md-offset-1 col-md-10">
     <h1> Convidados sem Convite <span class="badge"><%= @total_convidados %></span></h1>
-    <%= form_tag convidados_busca_bairro_path, method: :get, class: "form-inline col-md-offset-8" do %>
+    <%= form_tag convidados_busca_bairro_path, method: :get, class: "form-inline col-md-offset-7" do %>
       <div class="form-group">
         <%= label_tag "filtro_bairro", "Filtrar por Bairro" %>
         <%= select_tag :nome_bairro, options_from_collection_for_select(@convidados_bairro, "bairro", "bairro"), class: 'form-control' %>

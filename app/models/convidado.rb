@@ -14,4 +14,16 @@ class Convidado < ActiveRecord::Base
 	def self.busca_bairro (bairro)
 		Convidado.where("bairro like '%#{bairro}%' and convidados.id not in (select convidado_id from convites)")
 	end
+
+	def self.descricao
+		Convidado.sem_convite.select(:descricao).distinct.order(:descricao)
+	end
+
+	def self.cidade
+		Convidado.sem_convite.select(:cidade).distinct.order(:cidade)
+	end
+
+	def self.bairro
+		Convidado.sem_convite.select(:bairro).distinct.order(:bairro)
+	end
 end

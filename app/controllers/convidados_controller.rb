@@ -37,6 +37,24 @@ class ConvidadosController < ApplicationController
     render :index
   end
 
+  def filtrar
+    @opcao= params[:opcao_filtro]
+
+    case @opcao
+    when "descricao"
+      @dados=Convidado.descricao()
+    when "bairro"
+      @dados=Convidado.bairro()
+    when "cidade"
+      @dados=Convidado.cidade()
+    end
+
+    respond_to do |format|
+      #format.html {render :busca}
+      format.json {render json: @dados}
+    end
+  end
+
   # GET /convidados/new
   def new
     @convidado = Convidado.new

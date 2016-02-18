@@ -3,11 +3,11 @@
     <h1> Convidados sem Convite <span class="badge"><%= @total_convidados %></span></h1>
     <div class="col-md-4">
       <%= label_tag "opcao_filtro", "Bairro" %>
-      <%= radio_button_tag "opcao_filtro", "Bairro" %>
+      <%= radio_button_tag "opcao_filtro", "bairro" %>
       <%= label_tag "opcao_filtro", "Descrição" %>
-      <%= radio_button_tag "opcao_filtro", "Descrição" %>
+      <%= radio_button_tag "opcao_filtro", "descricao" %>
       <%= label_tag "opcao_filtro", "Cidade" %>
-      <%= radio_button_tag "opcao_filtro", "Cidade" %>
+      <%= radio_button_tag "opcao_filtro", "cidade" %>
     </div>
     <%= form_tag convidados_busca_bairro_path, method: :get, class: "form-inline col-md-offset-7" do %>
       <div class="form-group">
@@ -73,7 +73,16 @@
 
   var filtrar = function(){
     var opcao= $(':checked').attr('value');
-    console.log(opcao);
+    $.ajax({
+      url: "<%= convidados_filtrar_path %>",
+      type: "POST",
+      data: {opcao_filtro: opcao},
+      success: function(data){
+        $.each(data,function(i,obj){
+            console.log(obj.bairro);
+        });
+      }
+    });
   };
   $('button[name="convidar"]').bind('click', convidado);
   $('button[name="filtra_bairro"]').bind('click',filtrar);

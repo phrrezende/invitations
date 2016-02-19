@@ -1,15 +1,20 @@
   <p id="notice"><%= notice %></p>
   <div style="position:relative;" class="col-md-offset-1 col-md-10">
-    <h1> Convidados sem Convite <span class="badge"><%= @total_convidados %></span></h1>
-    <div class="col-md-4">
-      <%= label_tag "opcao_filtro", "Bairro" %>
-      <%= radio_button_tag "opcao_filtro", "bairro" %>
-      <%= label_tag "opcao_filtro", "Descrição" %>
-      <%= radio_button_tag "opcao_filtro", "descricao" %>
-      <%= label_tag "opcao_filtro", "Cidade" %>
-      <%= radio_button_tag "opcao_filtro", "cidade" %>
-    </div>
-    <%= form_tag convidados_busca_com_filtro_path, method: :get, class: "form-inline col-md-offset-7" do %>
+      <h1> Convidados sem Convite <span class="badge"><%= @total_convidados %></span> <i class="fa fa-search"></i>   
+</h1>
+    <div class="col-md-12 div-filtro">
+      <div class="col-md-2 col-md-offset-4">
+        <label for="opcao_filtro"> Opção de filtro:</label>
+      </div>
+      <div class="col-md-3">
+        <%= label_tag "opcao_filtro", "Bairro" %>
+        <%= radio_button_tag "opcao_filtro", "bairro" %>
+        <%= label_tag "opcao_filtro", "Descrição" %>
+        <%= radio_button_tag "opcao_filtro", "descricao" %>
+        <%= label_tag "opcao_filtro", "Cidade" %>
+        <%= radio_button_tag "opcao_filtro", "cidade" %>
+      </div>
+       <%= form_tag convidados_busca_com_filtro_path, method: :get, class: "form-inline col-md-3" do %>
       <div class="form-group">
         <input type="hidden" name="filtro_selecionado" />
         <select name="valor_filtro" id="valor_filtro" class="form-control">     
@@ -17,8 +22,8 @@
         <%= button_to "Filtrar", nil, class: "btn btn-primary" %>
       </div>    
     <% end %>
-
-    <table class="table table-striped">
+    </div>
+       <table class="table table-striped">
       <thead>
         <tr>
           <th>Nome</th>
@@ -30,7 +35,6 @@
           <th colspan="2">Ações</th>
         </tr>
       </thead>
-
       <tbody>
         <% @convidados.each do |convidado| %>
           <tr id="<%= convidado.id %>">
@@ -49,9 +53,6 @@
     <br>
     <%= button_to 'Novo Convidado', new_convidado_path, method: :get, class: 'btn btn-default' %>
   </div>
- 
-
-
 <% content_for :js do %>
  $(document).ready(function() {
 
@@ -71,7 +72,6 @@
       });
     }
   }; 
-
   var filtrar = function(){
     var opcao= $(':checked').attr('value');
     $('input[name="filtro_selecionado"]').attr({value:opcao});
@@ -96,11 +96,15 @@
       }
     });
   };
+
+  var mostrar_div= function(){
+    $('.div-filtro').toggle('slow');
+  };
   $('button[name="convidar"]').bind('click', convidado);
   $('button[name="filtra_bairro"]').bind('click',filtrar);
   $('input[name="opcao_filtro"]').bind('click',filtrar);
+  $('.fa-search').bind('click',mostrar_div);
  });
-
 <% end %>
 
 

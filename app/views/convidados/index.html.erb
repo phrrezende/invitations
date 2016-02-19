@@ -11,8 +11,10 @@
     </div>
     <%= form_tag convidados_busca_bairro_path, method: :get, class: "form-inline col-md-offset-7" do %>
       <div class="form-group">
-        <%= label_tag "filtro_bairro", "Filtrar por Bairro" %>
-        <%= select_tag :nome_bairro, options_from_collection_for_select(@convidados_bairro, "bairro", "bairro"), class: 'form-control' %>
+        <%= label_tag "nome_filtro", "Filtrar por Bairro" %>
+        <select name="nome_filtro" id="nome_filtro" class="form-control">
+          
+        </select>
         <%= button_to "Filtrar", nil, class: "btn btn-primary" %>
       </div>    
     <% end %>
@@ -78,8 +80,18 @@
       type: "POST",
       data: {opcao_filtro: opcao},
       success: function(data){
+        var select= $('#nome_filtro');
+        select.html('');
         $.each(data,function(i,obj){
-            console.log(obj.bairro);
+            if(opcao=='bairro'){
+              select.append("<option value='"+obj.bairro+"'>"+obj.bairro+"</option>");
+            }
+            else if(opcao=='cidade'){
+              select.append("<option value='"+obj.cidade+"'>"+obj.cidade+"</option>");
+            }
+            else{
+              select.append("<option value='"+obj.descricao+"'>"+obj.descricao+"</option>");
+            }  
         });
       }
     });

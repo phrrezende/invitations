@@ -29,13 +29,14 @@ class ConvidadosController < ApplicationController
     
   end
 
-  def busca_bairro
-    nome_bairro= "%#{params[:nome_bairro]}%"
-    @convidados=Convidado.busca_bairro(nome_bairro)
-    @convidados_bairro=Convidado.sem_convite.select(:bairro).distinct.order(:bairro)
+  def busca_com_filtro
+    filtro= params[:filtro_selecionado]
+    valor="%#{params[:valor_filtro]}%"
+    @convidados=Convidado.busca_com_filtro(filtro, valor)
     @total_convidados=@convidados.count()
     render :index
   end
+
 
   def filtrar
     @opcao= params[:opcao_filtro]

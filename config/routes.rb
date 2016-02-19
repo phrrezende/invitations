@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get  "/convites/busca" => "convites#busca"
   get  "/convidados/busca" => "convidados#busca"
-  get  "/convidados/busca_bairro" => "convidados#busca_bairro"
+  get  "/convidados/busca_com_filtro" => "convidados#busca_com_filtro"
   get  "/convidados/todos_convidados" => "convidados#todos_convidados"
   post  "/convidados/filtrar" => "convidados#filtrar"
   resources :convites

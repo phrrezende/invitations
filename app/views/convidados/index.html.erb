@@ -9,11 +9,10 @@
       <%= label_tag "opcao_filtro", "Cidade" %>
       <%= radio_button_tag "opcao_filtro", "cidade" %>
     </div>
-    <%= form_tag convidados_busca_bairro_path, method: :get, class: "form-inline col-md-offset-7" do %>
+    <%= form_tag convidados_busca_com_filtro_path, method: :get, class: "form-inline col-md-offset-7" do %>
       <div class="form-group">
-        <%= label_tag "nome_filtro", "Filtrar por Bairro" %>
-        <select name="nome_filtro" id="nome_filtro" class="form-control">
-          
+        <input type="hidden" name="filtro_selecionado" />
+        <select name="valor_filtro" id="valor_filtro" class="form-control">     
         </select>
         <%= button_to "Filtrar", nil, class: "btn btn-primary" %>
       </div>    
@@ -75,12 +74,13 @@
 
   var filtrar = function(){
     var opcao= $(':checked').attr('value');
+    $('input[name="filtro_selecionado"]').attr({value:opcao});
     $.ajax({
       url: "<%= convidados_filtrar_path %>",
       type: "POST",
       data: {opcao_filtro: opcao},
       success: function(data){
-        var select= $('#nome_filtro');
+        var select= $('#valor_filtro');
         select.html('');
         $.each(data,function(i,obj){
             if(opcao=='bairro'){

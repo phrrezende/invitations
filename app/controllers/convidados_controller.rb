@@ -51,8 +51,8 @@ class ConvidadosController < ApplicationController
   def busca_com_filtro
     filtro= params[:filtro_selecionado]
     valor="%#{params[:valor_filtro]}%"
-    @convidados=Convidado.busca_com_filtro(filtro, valor)
-    @total_convidados=@convidados.count()
+    @convidados_sem_convite=Convidado.busca_com_filtro(filtro, valor)
+    @total_convidados=@convidados_sem_convite.count()
     render :index
   end
 

@@ -7,6 +7,10 @@ class Convidado < ActiveRecord::Base
 		Convidado.where("convidados.id not in (select convidado_id from convites)").count()
 	end
 
+	def self.com_convite
+		Convidado.where("convidados.id in (select convidado_id from convites)")
+	end
+
 	def self.sem_convite
 		Convidado.where("convidados.id not in (select convidado_id from convites)")
 	end

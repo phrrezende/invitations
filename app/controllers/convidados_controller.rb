@@ -1,24 +1,43 @@
 class ConvidadosController < ApplicationController
+
   before_action :set_convidado, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 
   # GET /convidados
   def index
-    @convidados = Convidado.sem_convite.order(:nome)
+    @convidados_sem_convite = Convidado.sem_convite.order(:nome)
     @convidados_bairro=Convidado.sem_convite.select(:bairro).distinct.order(:bairro)
     @total_convidados=Convidado.busca_total
     @total_convites=Convite.busca_total
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ConvidadosSemConvitePdf.new(@convidados_sem_convite)
+        send_data pdf.render,type: "application/pdf",
+                      disposition: "inline"
+      end
+    end
   end
 
   def todos_convidados
     @convidados= Convidado.all.order(:nome)
     @total_convidados=Convidado.all.count()
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ConvidadosPdf.new(@convidados,@total_convidados)
+        send_data pdf.render,type: "application/pdf",
+                      disposition: "inline"
+      end
+    end
   end
 
   # GET /convidados/1
   def show
   end
-
+  
   def busca
     nome_a_buscar = "%#{params[:nome]}%"
     @convidados= Convidado.where("nome like ? or conjuge like ?", nome_a_buscar, nome_a_buscar)

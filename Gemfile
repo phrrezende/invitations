@@ -27,5 +27,5 @@ gem 'font-awesome-rails'
 
 gem 'uglifier'
 
-gem 'prawn', '~> 2.1'
+gem 'prawn', '1.0.0'
 

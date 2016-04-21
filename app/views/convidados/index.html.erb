@@ -1,7 +1,7 @@
   <p id="notice"><%= notice %></p>
   <div style="position:relative;" class="col-md-offset-1 col-md-10">
-      <h1> Convidados sem Convite <span class="badge"><%= @total_convidados %></span> <i class="fa fa-search"></i>   
-</h1>
+      <h1> Convidados sem Convite <span class="badge"><%= @total_convidados %></span> <i class="fa fa-search"></i> 
+ </h1>
     <div class="col-md-12 div-filtro">
       <div class="col-md-2 col-md-offset-3">
         <label for="opcao_filtro"> Opção de filtro:</label>
@@ -36,7 +36,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @convidados.each do |convidado| %>
+        <% @convidados_sem_convite.each do |convidado| %>
           <tr id="<%= convidado.id %>">
             <td><%= convidado.nome %></td>
             <td><%= convidado.conjuge %></td>
@@ -98,7 +98,7 @@
   };
 
   var mostrar_div= function(){
-    $('.div-filtro').toggle('fast');
+    $('.div-filtro').toggle('slow');
   };
   $('button[name="convidar"]').bind('click', convidado);
   $('button[name="filtra_bairro"]').bind('click',filtrar);

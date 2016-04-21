@@ -5,6 +5,16 @@ class ConvitesController < ApplicationController
   def index
     @convites = Convite.all
     @total_convites=Convite.busca_total
+
+    respond_to  do |format|
+
+      format.html
+      format.pdf do
+        pdf= ConvitesPdf.new(@convites)
+        send_data pdf.render,type: "application/pdf",
+                      disposition: "inline"
+      end
+    end
   end
 
   # GET /convites/1

@@ -75,6 +75,10 @@ class ConvidadosController < ApplicationController
     end
   end
 
+  def importar_csv
+    render :importar_csv
+  end
+
   # GET /convidados/new
   def new
     @convidado = Convidado.new

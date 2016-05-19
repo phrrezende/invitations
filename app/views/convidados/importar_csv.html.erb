@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-10"><h3>Importar Convidados</h3></div>
+<div class="col-md-offset-2 col-md-10">
+		<%= form_tag convidados_importar_path, multipart: true do %>
+			<div class="form-group">
+			    <%= file_field_tag :arquivo, class: "col-md-5 control-label" %>
+			    <div class="col-md-">
+			      <%= submit_tag "Importar", class: "btn btn-default" %>
+			    </div>
+			</div>
+		<% end %>
+		
+</div>
+<div class="alert alert-success col-md-offset-2 col-md-6" style="margin-top: 1.2em;"role="alert">
+	<p>O arquivo deve ser salvo com extensão .csv e com o seguinte cabeçalho: nome, conjuge, endereco, bairro, cidade e decricao.</p>
+</div>

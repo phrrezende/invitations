@@ -31,5 +31,10 @@ class Convidado < ActiveRecord::Base
 		Convidado.sem_convite.select(:bairro).distinct.order(:bairro)
 	end
 
+	def self.importar(arquivo)
+		CSV.foreach(arquivo.path, headers: true, encoding: "UTF-8") do |row|
+			Convidado.create! row.to_hash
+		end
+	end
 	
 end

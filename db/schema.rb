@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115135748) do
+ActiveRecord::Schema.define(version: 20160203185851) do
 
   create_table "convidados", force: :cascade do |t|
     t.string   "nome",       limit: 255

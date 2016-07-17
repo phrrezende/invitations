@@ -25,5 +25,19 @@ module Invitations
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.assets.initialize_on_precompile = false
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => 'gmail.com',
+      :user_name            => 'phr.rezende@gmail.com',
+      :password             => 'phr1989*',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true 
+    }
+    # Para debug apenas, é melhor que a linha abaixo seja adicionado apenas no ambiente de desenvolvimento
+    config.action_mailer.raise_delivery_errors = true
   end
 end

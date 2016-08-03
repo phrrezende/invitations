@@ -78,7 +78,8 @@ class ConvidadosController < ApplicationController
   def importar_csv
 
     if params[:arquivo]
-       Convidado.importar(params[:arquivo])
+      #arquivo=params[:arquivo]
+      Convidado.importar(params[:arquivo])
       redirect_to root_url, notice: "Convidados Importados com sucesso :)"
     else
       render :importar_csv

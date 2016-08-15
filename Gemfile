@@ -29,3 +29,5 @@ gem 'uglifier'
 
 gem 'prawn', '1.0.0'
 
+gem 'rake', '11.2.2'
+

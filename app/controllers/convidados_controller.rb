@@ -131,6 +131,6 @@ class ConvidadosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def convidado_params
-      params.require(:convidado).permit(:nome, :conjuge, :endereco, :bairro, :cidade, :descricao)
+      params.require(:convidado).permit(:nome, :nome_no_convite, :conjuge, :endereco, :bairro, :cidade, :descricao)
     end
 end

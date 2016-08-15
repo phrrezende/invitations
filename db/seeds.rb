@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+convidados = Convidado.all()
+
+for convidado in convidados
+	con = Convidado.find_by(id: convidado.id)
+	con.nome_no_convite= "#{con.nome} e Família"
+	con.save
+end

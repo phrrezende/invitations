@@ -28,6 +28,7 @@
       <thead>
         <tr>
           <th>Nome</th>
+          <th>Nome no Convite</th>
           <th>Conjuge</th>
           <th>Endereco</th>
           <th>Bairro</th>
@@ -40,6 +41,7 @@
         <% @convidados_sem_convite.each do |convidado| %>
           <tr id="<%= convidado.id %>">
             <td><%= convidado.nome %></td>
+            <td><%= convidado.nome_no_convite %></td>
             <td><%= convidado.conjuge %></td>
             <td><%= convidado.endereco %></td>
             <td><%= convidado.bairro %></td>

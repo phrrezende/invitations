@@ -49,6 +49,11 @@
             <td><%= convidado.descricao %></td>
             <td><button name="convidar" class="btn btn-default btn-xs">Convidar</button></td>
             <td><%= button_to 'Editar', edit_convidado_path(convidado), method: :get, class: 'btn btn-default btn-xs' %></td>
+            <td>
+                <%= button_to 'Excluir', convidado_path(convidado), method: :delete, 
+                data: { confirm: 'Deseja realmente Excluir?' },
+                class: 'btn btn-danger btn-xs' %>
+            </td>
           </tr>
         <% end %>
       </tbody>

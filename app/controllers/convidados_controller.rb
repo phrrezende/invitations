@@ -120,7 +120,7 @@ class ConvidadosController < ApplicationController
   # DELETE /convidados/1
   def destroy
     @convidado.destroy
-    redirect_to convidados_url, notice: 'Convidado was successfully destroyed.'
+    redirect_to convidados_url, notice: 'Convidado foi excluído com sucesso.'
   end
 
   private

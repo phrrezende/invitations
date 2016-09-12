@@ -1,6 +1,6 @@
 class Convidado < ActiveRecord::Base
 	has_one :convite
-	validates :nome, presence: true, uniqueness: true, length: {maximum: 50}
+	validates :nome, presence: true, uniqueness: false, length: {maximum: 50}
 	validates :bairro, presence: true
 
 	def self.busca_total

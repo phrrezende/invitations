@@ -1,30 +1,32 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Convites</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Nome Convidado</th>
-      <th>Data entrega</th>
-      <th>Convidado</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @convidados.each do |convidado| %>
+<div class="col-md-10">
+  <h1>Convidados Encontrados <span class="badge"><%=@total_convidados %></span></h1>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= convidado.nome %></td>
-        <td><%= convidado.conjuge %></td>
-        <td><%= convidado.descricao %></td>
-        <td><%= link_to 'Show', convidado %></td>
-        <td><%= link_to 'Edit', edit_convidado_path(convidado) %></td>
-        <td><%= link_to 'Destroy', convidado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nome Convidado</th>
+        <th>Conjuge</th>
+        <th>Descricao</th>
+        <th colspan="3">Ações</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @convidados.each do |convidado| %>
+        <tr>
+          <td><%= convidado.nome %></td>
+          <td><%= convidado.conjuge %></td>
+          <td><%= convidado.descricao %></td>
+          <td><%=  button_to 'Editar', edit_convidado_path(convidado), method: :get, class: 'btn btn-default btn-xs' %></td>
+          <td>
+            <%= button_to 'Excluir', convidado_path(convidado), method: :delete, 
+            data: { confirm: 'Deseja realmente Excluir?' },
+            class: 'btn btn-danger btn-xs' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Novo Convidado', new_convidado_path %>
 
-<%= link_to 'New Convite', new_convidado_path %>
+</div>

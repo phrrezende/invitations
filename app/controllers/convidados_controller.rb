@@ -40,7 +40,7 @@ class ConvidadosController < ApplicationController
   
   def busca
     nome_a_buscar = "%#{params[:nome]}%"
-    @convidados= Convidado.where("nome like ? or conjuge like ?", nome_a_buscar, nome_a_buscar)
+    @convidados= Convidado.where("nome like ? or conjuge like ?", nome_a_buscar, nome_a_buscar).order(:nome)
     @total_convidados=@convidados.count()
     respond_to do |format|
       format.html {render :busca}

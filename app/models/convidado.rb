@@ -16,7 +16,7 @@ class Convidado < ActiveRecord::Base
 	end
 
 	def self.busca_com_filtro (filtro, valor)
-		Convidado.where("#{filtro} like '#{valor}' and convidados.id not in (select convidado_id from convites)")
+		Convidado.where("#{filtro} like '#{valor}' and convidados.id not in (select convidado_id from convites)").order(:nome)
 	end
 
 	def self.descricao
